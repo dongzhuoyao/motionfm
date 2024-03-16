@@ -1,46 +1,6 @@
-# Motion Flow Matching for Human Motion Synthesis and Editing (ECCV 5540)
+# Motion Flow Matching for Human Motion Synthesis and Editing
 
-## Dataset Preparation
 
-KIT-ML dataset 
-
-```bash
-download from gdrive
-unzip KIT-ML-20230906T121325Z-001.zip
- rar x new_joint_vecs.rar new_joint_vecs
- rar x new_joints.rar new_joints
- rar x texts.rar texts
-```
-
-Prepare the following data following [MDM](https://github.com/GuyTevet/motion-diffusion-model)
-```bash
-HumanML3D.tar.gz 
-./pretrained 
-./body_models 
-./glove 
-./kit 
-./t2m 
-```
-
-## Environment Preparation
-
-```
-conda create -n motionfm  python=3.10
-conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-pip install pytorch-lightning torchdiffeq  h5py  diffusers accelerate loguru blobfile ml_collections ipdb
-pip install hydra-core  einops scikit-learn --upgrade
-conda install -c conda-forge ffmpeg
-pip install numpy==1.23.0
-pip install clearml wandb  sentencepiece transformers
-pip install spacy  clip smplx chumpy
-python -m spacy download en_core_web_sm
-pip install matplotlib==3.2.0 #necessary for plot_3d_motion, https://github.com/GuyTevet/motion-diffusion-model/issues/41
-pip install git+https://github.com/openai/CLIP.git
-pip install gdown #downloading dataset needs it.
-install ffmpeg
-pip install wandb==0.14.2
-```
 
 
 
@@ -107,6 +67,53 @@ python eval_humanml.py dataset=humanml dynamic=flow model_path=./outputs/humanml
 ```python 
 python -m visualize.render_mesh --input_path demo_data/humanml_trans_enc_512/samples_humanml_trans_enc_512_000475000_seed10_example_text_prompts/sample00_rep00.mp4
 ```
+
+
+
+## Environment Preparation
+
+```
+conda create -n motionfm  python=3.10
+conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install pytorch-lightning torchdiffeq  h5py  diffusers accelerate loguru blobfile ml_collections ipdb
+pip install hydra-core  einops scikit-learn --upgrade
+conda install -c conda-forge ffmpeg
+pip install numpy==1.23.0
+pip install clearml wandb  sentencepiece transformers
+pip install spacy  clip smplx chumpy
+python -m spacy download en_core_web_sm
+pip install matplotlib==3.2.0 #necessary for plot_3d_motion, https://github.com/GuyTevet/motion-diffusion-model/issues/41
+pip install git+https://github.com/openai/CLIP.git
+pip install gdown #downloading dataset needs it.
+install ffmpeg
+pip install wandb==0.14.2
+```
+
+
+
+## Dataset Preparation
+
+KIT-ML dataset 
+
+```bash
+download from gdrive
+unzip KIT-ML-20230906T121325Z-001.zip
+ rar x new_joint_vecs.rar new_joint_vecs
+ rar x new_joints.rar new_joints
+ rar x texts.rar texts
+```
+
+Prepare the following data following [MDM](https://github.com/GuyTevet/motion-diffusion-model)
+```bash
+HumanML3D.tar.gz 
+./pretrained 
+./body_models 
+./glove 
+./kit 
+./t2m 
+```
+
 
 
 
