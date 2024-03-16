@@ -7,7 +7,6 @@ from utils.fixseed import fixseed
 import os
 import numpy as np
 import torch
-from utils.model_util import create_model_and_diffusion, load_model_wo_clip
 from utils import dist_util
 from model.cfg_sampler import ClassifierFreeSampleModel
 from data_loaders.get_data import get_dataset_loader
@@ -16,7 +15,6 @@ import data_loaders.humanml.utils.paramUtil as paramUtil
 from data_loaders.humanml.utils.plot_script import plot_3d_motion
 import shutil
 from data_loaders.tensors import collate
-
 
 
 _FFMPEG_PATH = "ffmpeg"

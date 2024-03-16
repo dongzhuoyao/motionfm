@@ -63,17 +63,6 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nnodes=1 --nproc-per-node=4  train.py na
 
 
 
-## A2M: Humanact12 Dataset
-```python
-CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nnodes=1 --nproc-per-node=4  train.py dataset=humanact12 model.cond_mask_prob=0 guidance_param=1 model.lambda_rcxyz=0 model.lambda_vel=0 model.lambda_fc=0 training.num_steps=750000 action_name=drink name=750k_a2m_humanct12_4gpu_lambda0  is_debug=0
-```
-
-
-## A2M: uestc Dataset
-
-```python
-CUDA_VISIBLE_DEVICES=1 python train.py dataset=uestc model.cond_mask_prob=0 guidance_param=1 model.lambda_rcxyz=0 model.lambda_vel=0 model.lambda_fc=0 training.num_steps=2_000_000 action_name=drink   name=a2m_uestc_1gpu_2000k_lambda0  is_debug=0
-```
 
 
 # Editing
@@ -110,17 +99,6 @@ python eval_humanml.py dataset=kit dynamic=diffusion model_path=./pretrained/kit
 ```python 
 python eval_humanml.py dataset=humanml dynamic=flow model_path=./outputs/humanml_trans_enc_512_3gpu_600k/08-09-2023/17-39-14/model000300000.pt guidance_param=2.5 eval_mode=wo_mm diffusion_steps_sample=-1 is_debug=0
 ```
-
-
-```python 
-python eval_humanact12_uestc.py guidance_param=1.0 dataset=humanact12 model_path="./outputs/occupy_a2m_humanct12_4gpu_300k_lambda0/19-09-2023/15-04-36/model000300000.pt" is_debug=0 eval_mode=full
-```
-
-
-```python
-python eval_humanact12_uestc.py guidance_param=1.0 dataset=uestc model_path="./outputs/2M_flow_a2m_uestc_4gpu_600k_lambda0_ddas5wan/23-09-2023/11-41-02/model002000000.pt" is_debug=0 eval_mode=full
-```
-
 
 
 
