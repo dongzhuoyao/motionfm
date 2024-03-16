@@ -1,0 +1,13 @@
+arch: trans_enc #'trans_enc', 'trans_dec', 'gru'
+emb_trans_dec: False
+layers: 8
+latent_dim: 512
+ff_size: 1024
+num_heads: 4
+cond_mask_prob: 0.1
+lambda_rcxyz: 0.0 #https://github.com/GuyTevet/motion-diffusion-model/issues/19
+lambda_vel: 0.0
+lambda_fc: 0.0
+unconstrained: false 
+text_emebed: clip #clip, t5-large
+

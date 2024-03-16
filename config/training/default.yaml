@@ -1,0 +1,22 @@
+save_dir: ${log_dir}
+overwrite: true 
+train_platform_type:  Wandb_ClearML_Platform #'NoPlatform', 'ClearmlPlatform', 'TensorboardPlatform'
+resume_checkpoint: ""
+
+num_steps: 600_000
+num_frames: 60 #num_frames
+
+lr: 1e-4
+weight_decay: 0.0
+lr_anneal_steps: 0
+
+log_interval: 1_000
+save_interval: 10_000
+
+
+
+eval_batch_size: 32
+eval_split: test #val, test
+eval_during_training: true 
+eval_rep_times: 3  #Number of repetitions for evaluation loop during training.
+eval_num_samples: 1_000

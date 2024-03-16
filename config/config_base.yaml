@@ -1,0 +1,100 @@
+defaults:
+  - model: default
+  #- model: a2m
+  - training: default
+  - _self_
+
+num_frames: null #need it for sssdsdhere
+jointstype: null #need it for sssdsdhere
+vertstrans: null #need it for sssdsdhere
+unconstrained: null #need it for sssdsdhere
+
+num_classes: null #need it for sssdsdhere
+nfeats: null #need it for sssdsdhere
+njoint: null #need it for sssdsdhere
+
+#base
+num_seeds: 2
+cuda: true
+device: 0
+seed: 10
+batch_size: 64 
+
+is_vis: true # do vis
+
+#data
+dataset: humanact12 #'humanml', 'kit', 'humanact12', 'uestc'
+num_workers: 4
+
+dynamic: flow #diffusion, flow
+#diffusion
+noise_schedule: cosine #cosine, linear
+diffusion_steps_sample: 1000
+use_ddim: false
+sigma_small: True #Use smaller sigma values.
+
+#flow 
+ode_kwargs:
+  method: euler #dopri5
+  atol: 1e-5
+  rtol: 1e-5
+  step_size: 0.01
+  edit_till: 1.0
+  return_x_est: false
+  return_x_est_num: null
+
+
+# sample
+model_path: ''
+output_dir: ${log_dir}/samples
+num_samples: 10
+num_repetitions: 1
+guidance_param:  null #2.5
+
+#edit
+edit_mode: null #in_between, upper_body
+text_condition: null 
+prefix_end: 0.25 #used for in_between
+suffix_start: 0.75 #used for in_between
+edit_alter_prompts: null # alter the text prompts when editing, e.g., in-between, upper-body
+
+
+# generate
+motion_length: 6.0
+input_text: '' #./assets/example_text_prompts.txt
+action_file: ''
+text_prompt: ''
+action_name: ''
+
+
+#evaluation
+#model_path: ''
+eval_mode: wo_mm #"wo_mm", "mm_short", "debug", "full"
+#guidance_param: 2.5
+
+
+
+name: ${dataset}
+is_debug: true
+logdir: "logs"
+
+
+wandb:
+  name: ${name}
+  project: motionfm
+  entity: dpose-team
+  reinit: False
+  group: DDP
+
+hydra:
+  job:
+    name: ${name}
+    num: 1
+  run:
+    dir: ${log_dir}
+
+
+# for convenience
+log_dir: ./outputs/${name}/${now:%d-%m-%Y}/${now:%H-%M-%S}
+ckpt_dir: ${log_dir}/ckpts
+python_version: ${python_version:}
