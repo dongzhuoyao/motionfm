@@ -1,7 +1,12 @@
 # Motion Flow Matching for Human Motion Synthesis and Editing
 
+**Arxiv**
 
 
+[![Website](doc/badges/badge-website.svg)](https://taohu.me/mfm)
+[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b)](https://arxiv.org/abs/2312.08895)
+[![GitHub](https://img.shields.io/github/stars/dongzhuoyao/motionfm?style=social)](https://github.com/dongzhuoyao/motionfm)
+[![License](https://img.shields.io/badge/License-Apache--2.0-929292)](https://www.apache.org/licenses/LICENSE-2.0)
 
 
 # Training
