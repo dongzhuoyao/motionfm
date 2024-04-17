@@ -9,6 +9,16 @@
 [![License](https://img.shields.io/badge/License-Apache--2.0-929292)](https://www.apache.org/licenses/LICENSE-2.0)
 
 
+# Citation
+```
+@inproceedings{motionfm,
+  title = {Motion Flow Matching for Human Motion Synthesis and Editing},
+  author = {Hu, Vincent Tao and Yin, Wenzhe and Ma, Pingchuan and Chen, Yunlu and Fernando, Basura and Asano, Yuki M. and Gavves, Efstratios and Mettes, Pascal and Ommer, Björn and Snoek, Cees G.M.},
+  year = {2024},
+ booktitle = {Arxiv},
+}
+```
+
 # Training
 
 
